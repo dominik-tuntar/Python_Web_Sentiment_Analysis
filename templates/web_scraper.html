@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upute za Web Scraper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #298efb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="{{ url_for('home') }}">Back</a>
+        <h1>How to use the Web Scraper extension</h1>
+        <h3>1. Installation and opening</h3>
+        <p>The extension is currently available only for the Chrome web browser. The extension is installed through <a
+                href="https://chromewebstore.google.com/detail/web-scraper-free-web-scra/jnhgnonknehpejjnehehllkliplmbmhn">this
+                page.</a></p>
+        <p>After installation, press F12, use the shortcut Ctrl+Shift+i, or go to Settings-More Tools-Developer Tools to open
+            the window where the extension should be located.</p>
+        <img src="{{ url_for('static', filename='images/web_scraper1.png') }}" alt="">
+        <img src="{{ url_for('static', filename='images/web_scraper2.png') }}" alt="">
+        <h3>2. Setting up the extension to collect data from a source</h3>
+        <p>First, you need to click the Create new sitemap-Create Sitemap button. After that, find an online source. In this
+            example, Amazon reviews for a keyboard are used.</p>
+        <p>If the source contains multiple pages, you need to find a link that contains the page number, and in the Start URL
+            1 field, paste the link and replace the number with [first-last]. In this example, the number 2</p>
+        <p>is replaced with [1-3], as we are collecting reviews from the 1st to the 3rd page.</p>
+        <img src="{{ url_for('static', filename='images/web_scraper3.png') }}" alt="">
+        <img src="{{ url_for('static', filename='images/web_scraper4.png') }}" alt="">
+        <p>After creating the sitemap, click the add new selector button. In the Id field, type content <b>(IMPORTANT)</b> and
+            click the multiple checkbox.</p>
+        <img src="{{ url_for('static', filename='images/web_scraper5.png') }}" alt="">
+        <p>Now click the Select button in the Selectors section above the checkbox. The page will now darken, and you'll have
+            the option to select an element. Click the desired element, which in this example is a review,</p>
+        <p>that element will now be highlighted in red, and then click on another such element. If everything was done
+            successfully, all the desired elements on the page should be highlighted as shown in the image.</p>
+        <img src="{{ url_for('static', filename='images/web_scraper6.png') }}" alt="">
+        <p>Now click the green Done selecting button, and at the bottom of the extension, click the blue Save selector button.</p>
+        <h3>3. Collecting data</h3>
+        <p>In the sitemap section [example], click the Scrape button as shown in the image. A tab will open with options for
+            Request interval and Page load delay, which can be changed as desired. Click the blue Start scraping button.</p>
+        <img src="{{ url_for('static', filename='images/web_scraper7.png') }}" alt="">
+        <p>Once the data collection is complete, the collected columns will be displayed (the extension will offer a Refresh
+            option if the data is not shown).</p>
+        <img src="{{ url_for('static', filename='images/web_scraper8.png') }}" alt="">
+        <h3>4. Exporting data</h3>
+        <p>In the sitemap section [example], click the Export data button and click the blue .csv button.</p>
+        <p>The downloaded file can now be used for analysis.</p>
+    </div>    
+</body>
+
+</html>
