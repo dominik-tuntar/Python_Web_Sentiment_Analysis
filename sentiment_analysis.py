@@ -136,15 +136,12 @@ axes[2, 0].set_title('Distribution of emotions')
 axes[2, 1].pie(emotion_values, labels=emotion_labels, autopct='%1.1f%%', colors=['red', 'blue', 'green', 'orange', 'purple', 'cyan', 'magenta', 'yellow', 'brown', 'grey'])
 axes[2, 1].set_title('Distribution of emotions (pie chart)')
 
-# Save the plot as an image file
 plot_file_path = os.path.join(PLOT_FOLDER, 'sentiment_analysis_plot.png')
 plt.tight_layout()
 plt.savefig(plot_file_path)
 
-# Clean up the plots and close the figure
 plt.close(fig)
 
 clean_uploads_folder(UPLOAD_FOLDER)
 
-# Print the path to the saved plot file
 print(plot_file_path)
